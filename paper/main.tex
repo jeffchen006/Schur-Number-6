@@ -81,7 +81,8 @@ The complete partitions and supplementary tables are available at
 
 Throughout, $N=538$, $\fold(x)=\min(x,N-x)$, and a colouring $c$ of
 $\{1,\dots,537\}$ is \emph{palindromic} if $c(x)=c(N-x)$ for all $x$. We number the
-colours $1,\dots,6$ in the order of their least elements.
+colours $1,\dots,6$ in the order of their least elements. We write
+$C_j=c^{-1}(j)$ for the $j$-th color class.
 
 \section{Consequences for other bounds}\label{sec:consequences}
 Classical recurrences of Schur and Abbott--Hanson~\cite{schur,abbott},
@@ -178,8 +179,13 @@ The family properties follow by counting the quantities in Table~\ref{tab:famili
 \end{proof}
 
 For Table~\ref{tab:families}, $d_{\rm pal}$ counts pairs $\{x,538-x\}$
-with different colors, $\Delta_1=|C_1\mathbin{\triangle}C^*|$, and $h$ counts
-folded positions $f>236$ outside color 6. Family $\mathcal F_5$ is measured after
+with different colors, $\Delta_1=|C_1\mathbin{\triangle}C^*|$, and
+\[
+h=\bigl|\{y\in\{237,\dots,269\}:\{y,538-y\}\not\subseteq C_6\}\bigr|.
+\]
+Thus $h$ counts each folded value once if either corresponding position is
+outside color 6, including the single central position $y=269$.
+Family $\mathcal F_5$ is measured after
 $x\mapsto43x\bmod538$ and color renumbering; its original class minima are
 $1,2,3,4,7,16$. Families $\mathcal F_1$--$\mathcal F_3$ satisfy frame $g$.
 Family $\mathcal F_4$ satisfies the frame with the solid-middle condition removed.
@@ -188,7 +194,8 @@ These families describe the retained sample, not all possible 537-partitions.
 \begin{table}[tbp]
 \caption{The 131 retained partitions. Intervals give the observed minimum and
 maximum within a family. Features of $\mathcal F_5$ use the normalization stated
-in the text. All entries are computed from the 131 explicit partitions.}
+in the text. The quantity $h$ counts folded values, not individual positions.
+All entries are computed from the 131 explicit partitions.}
 \label{tab:families}
 \centering
 \begin{tabular}{lrrrr}
