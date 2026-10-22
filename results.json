@@ -36,8 +36,5 @@
     "Fan Long"
   ],
   "paper_title": "A new lower bound for the sixth Schur number: S(6) >= 537",
-  "document_class": "amsart",
-  "figure_source": "paper/figures/structure.tex",
-  "figure_generator": "paper/make_figures.py",
-  "figure_and_table_data": "paper/figures/structure-data.json"
+  "document_class": "amsart"
 }

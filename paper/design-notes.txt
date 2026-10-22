@@ -1,9 +1,9 @@
-Layout and visual references
+Layout and presentation references
 ============================
 
 The paper uses the standard LaTeX article document class, with a single column,
 a three-column author block showing affiliations and emails on the first page,
-a compact abstract, theorem environments, and numbered figure and table captions.
+a compact abstract, theorem environments, and numbered table captions.
 
 Published papers read for the presentation:
 
@@ -13,21 +13,15 @@ Published papers read for the presentation:
    The constructions on page 6 list explicit color classes. Our paper also
    retains a complete numerical certificate near the main result.
 
-2. M. J. H. Heule, Schur Number Five, Proceedings of AAAI 32(1) (2018).
-   https://doi.org/10.1609/aaai.v32i1.12209
-   Figure 1 places integer positions in columns and color classes in rows.
-   Our new diagram uses this row layout with our own 537 certificate.
-
 Additional table reference:
 
-3. R. Ageron et al., New lower bounds for Schur and weak Schur numbers,
+2. R. Ageron et al., New lower bounds for Schur and weak Schur numbers,
    arXiv:2112.03175v2 (2022), Table 1.
    https://arxiv.org/abs/2112.03175v2
    This preprint compares earlier bounds and the authors' improvements.
    Our Table 1 uses a similar old/new comparison with the values derived here.
 
-All new figure cells and family statistics are generated from certificate.col
-and solutions537.txt by make_figures.py. No source-paper image is embedded
-or copied. The family table describes the retained sample. Implementation details and the historical decoder caveat are documented in
-the repository, outside the paper. The paper presents only the mathematical
-construction, explicit partitions, figures, tables, and references.
+The paper contains no figures. It retains the explicit partition, mathematical
+frame conditions, bound comparison table, and family statistics table.
+Implementation details and the historical decoder caveat are documented in
+the repository, outside the paper.
