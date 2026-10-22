@@ -1,0 +1,7 @@
+Theorem 1: the example is a partition of [1,537] into 6 sum-free sets
+Corollary: partition of [1,5372] into 8 sum-free sets built and checked
+131 distinct partitions, all sum-free and sum-free modulo 538
+no two of them are related by x -> r*x mod 538 (r a unit, includes r = -1)
+family sizes {'F1': 107, 'F2': 14, 'F3': 5, 'F4': 4, 'F5': 1}
+largest number of positions in which a partition of F1-F4 differs from the example: 75
+all checks passed

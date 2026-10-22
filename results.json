@@ -1,0 +1,33 @@
+{
+  "claim": "S(6) >= 537",
+  "definition": "maximum feasible interval length",
+  "equal_summands_allowed": true,
+  "certificate": "certificate.col",
+  "number_of_partitions": 131,
+  "family_sizes": {
+    "F1": 107,
+    "F2": 14,
+    "F3": 5,
+    "F4": 4,
+    "F5": 1
+  },
+  "all_partitions_sum_free_modulo": 538,
+  "pairwise_inequivalent_under": [
+    "color permutations",
+    "multiplication by a unit modulo 538"
+  ],
+  "derived_bounds": {
+    "S(8)": 5372,
+    "S(11)": 204208,
+    "S(13)": 2042082,
+    "R_6(3)": 539
+  },
+  "explicit_certificates": {
+    "S(6)": "certificate.col",
+    "S(8)": "data/S8_n5372.txt"
+  },
+  "paper": "paper/main.pdf",
+  "full_tables": "supplement/partitions.pdf",
+  "verification_command": "python3 check.py",
+  "generator_caveat": "Historical decoder can lose forced frame colors; run python3 decoder_caveat.py."
+}

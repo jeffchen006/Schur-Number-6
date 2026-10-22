@@ -1,0 +1,9 @@
+{
+  "all_generated_clauses_satisfied": true,
+  "generated_clause_count": 433352,
+  "decoded_partition_sum_free": true,
+  "decoded_color_at_237": 1,
+  "decoded_color_at_301": 1,
+  "frame_requires_color": 6,
+  "frame_violation_reproduced": true
+}

@@ -1,0 +1,20 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=25mm]{geometry}
+\usepackage{amsmath,listings}
+\usepackage[hidelinks]{hyperref}
+\lstset{basicstyle=\scriptsize\ttfamily,columns=fullflexible,keepspaces=true,
+  breaklines=true,showstringspaces=false,aboveskip=1pt,belowskip=5pt}
+\title{Supplementary Tables: 131 Six-Color Sum-Free Partitions of $[1,537]$}
+\author{SMT-challenge project}
+\date{22 October 2026}
+\begin{document}
+\maketitle
+Each word gives $c(1)c(2)\cdots c(537)$, with colors numbered 1--6 in the order
+of their least elements. Spaces and line breaks have no mathematical meaning.
+The same data are stored in \texttt{solutions537.txt}. The accompanying
+\texttt{check.py} checks all 131 partitions and the reported family properties.
+\par\medskip
+\input{appendix_all.tex}
+\end{document}
