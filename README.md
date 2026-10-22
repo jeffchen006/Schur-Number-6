@@ -12,6 +12,7 @@ This gives **S(6) >= 537** under the maximum-feasible-interval convention.
 ## Paper and full results
 
 - [Paper PDF](paper/main.pdf), with one complete explicit partition.
+  The paper presents the mathematics. Implementation details are documented here.
 - [LaTeX source](paper/main.tex), using the AMS `amsart` class.
 - [Certificate and frame diagram](paper/figures/structure.tex), generated from the data.
 - [Figure and family data](paper/figures/structure-data.json).

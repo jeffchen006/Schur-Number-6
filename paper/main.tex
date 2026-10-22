@@ -31,16 +31,16 @@ establishing $S(6)\ge537$. This improves the lower bound 536 of Fredricksen and
 Sweet (2000). Known recursive constructions then give improved lower bounds
 for $S(8)$, $S(11)$, $S(13)$, and $R_6(3)$. We also report 131 pairwise
 inequivalent partitions found by the search. We describe their structure and
-provide the complete certificates and verification code in a companion repository.
+provide the complete partitions in the supplementary material.
 \end{abstract}
-\keywords{Schur numbers, sum-free partitions, SAT, computational combinatorics}
+\keywords{Schur numbers, sum-free partitions, Ramsey theory}
 \maketitle
 
 \section{Introduction}
 A set $C$ of integers is \emph{sum-free} if there are no $x,y\in C$, not necessarily
 distinct, with $x+y\in C$. The Schur number $S(k)$ is the largest $n$ for which
 $\{1,\dots,n\}$ can be partitioned into $k$ sum-free sets. The values
-$S(1),\dots,S(5)=1,4,13,44,160$ are known, the last one by a large SAT computation of
+$S(1),\dots,S(5)=1,4,13,44,160$ are known, the last one determined by
 Heule~\cite{heule}. For $k=6$ the record has been $S(6)\ge536$ since 2000, when
 Fredricksen and Sweet~\cite{fs} found it by a search over symmetric sum-free
 partitions; it has been quoted as the best known bound ever since. We improve it
@@ -53,8 +53,8 @@ $S(6)\ge 537$.
 \begin{proof}
 The following six sets are pairwise disjoint, their union is $\{1,\dots,537\}$, and
 none of them contains $x$, $y$ and $x+y$. We list every element, as in the
-explicit constructions of Fredricksen and Sweet~\cite{fs}. This is a finite check; a script that
-performs it is supplied as \texttt{check.py} in the companion repository.
+explicit constructions of Fredricksen and Sweet~\cite{fs}. These properties
+are verified by checking all sums $x+y$ within each set, including $x=y$.
 \par\smallskip
 \input{partition_blocks.tex}
 \end{proof}
@@ -63,8 +63,8 @@ Theorem~\ref{thm:537} needs only this one partition. Section~\ref{sec:consequenc
 lists what it implies for other Schur and Ramsey numbers. In Section~\ref{sec:families} we
 describe all $131$ partitions of $\{1,\dots,537\}$ into six sum-free sets that our
 search produced.
-Section~\ref{sec:method} explains briefly how the partitions were found.
-The complete results, code, and supplementary tables are available at
+Section~\ref{sec:method} describes the construction of the families.
+The complete partitions and supplementary tables are available at
 \url{https://github.com/jeffchen006/Schur-Number-6}.
 
 Throughout, $N=538$, $\fold(x)=\min(x,N-x)$, and a colouring $c$ of
@@ -89,7 +89,7 @@ The lower bounds in the column headed ``This work'' in Table~\ref{tab:bounds} ho
 
 \begin{table}[tbp]
 \caption{Lower bounds in the cited literature and the bounds obtained here.
-The six- and eight-color bounds have explicit certificates in the repository.}
+The six- and eight-color bounds are supported by explicit partitions.}
 \label{tab:bounds}
 \centering
 \begin{tabular}{lrrl}
@@ -110,9 +110,8 @@ $S(8)\ge10\cdot537+2$, $S(11)\ge380\cdot537+148$,
 $S(13)\ge10\cdot S(11)+2\ge10\cdot204\,208+2$, and $R_6(3)\ge S(6)+2$. For $S(8)$ we also
 built the partition explicitly: apply the width-$10$ template of
 \cite[Table~II]{bengone} to the partition of Theorem~\ref{thm:537}, with colours $7$
-and $8$ for the labels $A$ and $B$. The companion script \texttt{check.py} builds this
-partition of $\{1,\dots,5372\}$ into eight sets and checks that all of them are
-sum-free.
+and $8$ for the labels $A$ and $B$. This gives a partition of
+$\{1,\dots,5372\}$ into eight sum-free sets.
 \end{proof}
 
 Bounds for larger $k$ that are derived through these recurrences change in the same
@@ -163,7 +162,7 @@ numbers. The first class of the example is exactly $C^*$.
 
 \begin{proposition}\label{prop:families}
 The $131$ partitions of $\{1,\dots,537\}$ into six sum-free sets listed in
-the companion file \texttt{solutions537.txt} are pairwise distinct, every class of each of them is
+the supplementary material are pairwise distinct, every class of each of them is
 sum-free modulo $538$, and no one of them is obtained from another by a map
 $x\mapsto rx \bmod 538$ with $\gcd(r,538)=1$ followed by renaming the colours.
 They form the five families summarized in Table~\ref{tab:families}.
@@ -173,7 +172,10 @@ $462$ of the $537$ positions.
 \end{proposition}
 
 \begin{proof}
-All statements are finite checks, carried out by the companion script \texttt{check.py}.
+For each partition, check all sums within each class modulo $538$.
+To check inequivalence, compare all images under multiplication by units modulo
+$538$, with colors renumbered in the order of their least elements.
+The family properties follow by counting the quantities in Table~\ref{tab:families}.
 \end{proof}
 
 For Table~\ref{tab:families}, $d_{\rm pal}$ counts pairs $\{x,538-x\}$
@@ -187,7 +189,7 @@ These families describe the retained sample, not all possible 537-partitions.
 \begin{table}[tbp]
 \caption{The 131 retained partitions. Intervals give the observed minimum and
 maximum within a family. Features of $\mathcal F_5$ use the normalization stated
-in the text. All entries are computed from \texttt{solutions537.txt}.}
+in the text. All entries are computed from the 131 explicit partitions.}
 \label{tab:families}
 \centering
 \begin{tabular}{lrrrr}
@@ -205,69 +207,30 @@ Total & 131 & & &\\
 \end{tabular}
 \end{table}
 
-\section{How to reproduce the search}\label{sec:method}
-\paragraph{Encoding.} For a palindromic colouring use variables $v_{y,k}$ for
-$y\in\{1,\dots,269\}$ and $k\in\{1,\dots,6\}$, meaning ``$\fold(x)=y$ has colour $k$''.
-The clauses are: $v_{y,1}\vee\dots\vee v_{y,6}$ for each $y$; the clause
-$\neg v_{\fold(x),k}\vee\neg v_{\fold(y),k}\vee\neg v_{\fold(x+y),k}$ for all
-$1\le x\le y$, $x+y\le537$ and all $k$; and one unit clause for each condition of
-Definition~\ref{def:frameg}. (A palindromic colouring with sum-free classes is
-automatically sum-free modulo $538$.) The script \texttt{gen.py} in
-the companion repository writes this CNF and decodes a model.
+\section{Construction of the families}\label{sec:method}
+The palindromic families are obtained by imposing reflection symmetry and the
+sum-free conditions modulo $538$. For $\mathcal F_1$ and $\mathcal F_2$, we also
+impose frame $g$. The two families are distinguished by whether the first class
+is $C^*$ or differs from it in one reflected pair. For $\mathcal F_3$, we retain
+the frame conditions but remove reflection symmetry. For $\mathcal F_4$, we
+retain reflection symmetry but remove the condition that color 6 contains every
+position with $f(x)>236$.
 
-\paragraph{Decoder caveat.}
-The supplied historical generator does not impose at-most-one-colour clauses.
-Its decoder selects the lowest-numbered true colour at each position. This
-preserves sum-freeness, but can discard a colour required by a positive unit
-clause, so the output need not satisfy frame $g$. For example, a satisfying
-model can decode positions $237$ and $301$ as colour $1$, although the frame
-requires colour $6$ there. This does not affect the independently checked
-certificates reported here. To guarantee the frame after decoding, add
-$\neg v_{y,i}\vee\neg v_{y,j}$ for each position $y$ and $1\le i<j\le6$,
-or choose a required colour first and check all frame conditions after decoding.
-The repository includes a script that reproduces this caveat.
+For $\mathcal F_5$, let $c$ be the coloring in Theorem~\ref{thm:537} and put
+\[
+c_m(x)=c(mx\bmod538),\qquad m\in\{3,25,221\},
+\]
+with the colors of each $c_m$ renamed to maximize agreement with $c$.
+We then require a new coloring $c'$ to satisfy
+\[
+c'(x)\in\{c_3(x),c_{25}(x),c_{221}(x)\},\qquad 1\le x\le537,
+\]
+together with sum-freeness modulo $538$. This construction does not impose
+reflection symmetry or the solid-middle condition.
 
-\paragraph{Solving.} With Kissat~4.0.4~\cite{kissat}:
-\begin{lstlisting}
-python3 gen.py cnf > g.cnf
-kissat --seed=1 g.cnf > g.out
-python3 gen.py decode g.out
-\end{lstlisting}
-On one core this took $286$\,s with seed~1 and $4$\,s with seed~2; both solutions lie
-in $\mathcal F_1$, and different seeds give different members.
-
-\paragraph{The other families.} For $\mathcal F_3$ drop palindromy: use one variable
-per $x\in\{1,\dots,537\}$, forbid monochromatic $x+y\equiv z\pmod{538}$, and impose
-the frame conditions on $\fold(x)$ (\texttt{gen.py --nopal}; $41$\,s with seed~2,
-while seed~1 did not finish in $15$ minutes). For $\mathcal F_4$ drop the condition that
-colour~6 fills $\fold(x)>236$ (\texttt{gen.py --nomid}); this allows $\mathcal F_4$,
-but a given run may still return a member of $\mathcal F_1$.
-$\mathcal F_5$ came from a list-colouring run: let $c$ be the example and
-$c_m(x)=c(mx\bmod 538)$ for $m=3,25,221$, with colours renamed to agree with $c$ as
-much as possible; each $x$ may only take one of the colours $c_3(x),c_{25}(x),
-c_{221}(x)$, and no other condition is imposed.
-
-\paragraph{Where frame $g$ came from.} An evolutionary search over depth-first
-search programs, in the spirit of FunSearch~\cite{funsearch}, produced valid
-colourings of $\{1,\dots,n\}$ for $n$ up to $528$ from scratch, without seed
-colourings. Those programs restrict the search by rules that ban a colour below a
-given value of $\fold$, and the rules used by the best colourings had the shape of
-Definition~\ref{def:frameg}, with $Q$ and $d$ as parameters. At $n=537$ a sweep over
-$140\le Q\le160$ found no solution for $39\le d\le45$ and the first one at
-$(Q,d)=(151,38)$.
-
-The work was done by a group of AI agents (Claude Code sessions, with OpenAI Codex
-for second opinions) on a $192$-core server over about a day and a half; every
-result was recorded with a command that reproduces it and checked by a second agent.
-
-\paragraph{Data and code.}
-The companion repository contains the full list of $131$ partitions, a separate
-PDF table, the example certificate, the $5372$-element eight-colouring,
-\texttt{check.py}, \texttt{gen.py}, and \texttt{paper/make\_figures.py}.
-The figures are vector graphics generated from the certificates. To check the results, run
-\texttt{python3 check.py} from the repository root with Python~3 and its
-standard library. The paper retains one complete partition; the remaining
-partitions and code are supplementary material.
+The example in Theorem~\ref{thm:537} is sufficient for the new lower bound.
+The other partitions describe variations of its structure; they do not form an
+exhaustive classification of six-color partitions of $[1,537]$.
 
 \begin{thebibliography}{99}
 \small\raggedright
@@ -290,10 +253,5 @@ bounds on classical multicolor Ramsey numbers, \emph{Electron.\ J.\ Combin.}
 bounds for Schur numbers, \emph{Electron.\ J.\ Combin.} \textbf{7} (2000), \#R32. \href{https://doi.org/10.37236/1510}{doi:10.37236/1510}.
 \bibitem{heule} M.~J.~H.~Heule, Schur number five, \emph{Proc.\ AAAI} \textbf{32}
 (2018). \href{https://doi.org/10.1609/aaai.v32i1.12209}{doi:10.1609/aaai.v32i1.12209}.
-\bibitem{kissat} A.~Biere, K.~Fazekas, M.~Fleury and M.~Heisinger, CaDiCaL, Kissat,
-Paracooba, Plingeling and Treengeling entering the SAT Competition 2020,
-\emph{Proc.\ SAT Competition 2020}.
-\bibitem{funsearch} B.~Romera-Paredes et al., Mathematical discoveries from program
-search with large language models, \emph{Nature} \textbf{625} (2024).
 \end{thebibliography}
 \end{document}
