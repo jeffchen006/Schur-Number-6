@@ -1,0 +1,32 @@
+Layout and visual references
+============================
+
+The paper uses the standard AMS amsart document class, with a single column,
+separate author commands, a compact abstract, theorem environments, running
+heads, and numbered figure and table captions.
+
+Published papers read for the presentation:
+
+1. H. Fredricksen and M. M. Sweet, Symmetric Sum-Free Partitions and Lower
+   Bounds for Schur Numbers, Electronic Journal of Combinatorics 7 (2000), R32.
+   https://doi.org/10.37236/1510
+   The constructions on page 6 list explicit color classes. Our paper also
+   retains a complete numerical certificate near the main result.
+
+2. M. J. H. Heule, Schur Number Five, Proceedings of AAAI 32(1) (2018).
+   https://doi.org/10.1609/aaai.v32i1.12209
+   Figure 1 places integer positions in columns and color classes in rows.
+   Our new diagram uses this row layout with our own 537 certificate.
+
+Additional table reference:
+
+3. R. Ageron et al., New lower bounds for Schur and weak Schur numbers,
+   arXiv:2112.03175v2 (2022), Table 1.
+   https://arxiv.org/abs/2112.03175v2
+   This preprint compares earlier bounds and the authors' improvements.
+   Our Table 1 uses a similar old/new comparison with the values derived here.
+
+All new figure cells and family statistics are generated from certificate.col
+and solutions537.txt by make_figures.py. No source-paper image is embedded
+or copied. The family table describes the retained sample. The original
+decoder caveat remains in the paper.

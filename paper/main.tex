@@ -1,12 +1,12 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt,a4paper,reqno]{amsart}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[margin=25mm]{geometry}
-\usepackage{amsmath,amssymb,amsthm,listings}
+\usepackage{amsmath,amssymb,amsthm,listings,booktabs,array,tikz}
 \usepackage[expansion=false]{microtype}
 \setlength{\emergencystretch}{1em}
 \usepackage[hidelinks]{hyperref}
-\hypersetup{pdftitle={The sixth Schur number is at least 537},pdfauthor={Zhiyang Chen, Ligeng Zhu, Fan Long}}
+\hypersetup{pdftitle={A new lower bound for the sixth Schur number: S(6) >= 537},pdfauthor={Zhiyang Chen, Ligeng Zhu, Fan Long}}
 \lstset{basicstyle=\small\ttfamily,columns=fullflexible,keepspaces=true,
   breaklines=true,showstringspaces=false,aboveskip=4pt,belowskip=4pt}
 \newtheorem{theorem}{Theorem}
@@ -17,23 +17,24 @@
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\fold}{\operatorname{f}}
 
-\title{The sixth Schur number is at least 537}
-\author{Zhiyang Chen \and Ligeng Zhu \and Fan Long}
-\date{22 October 2026 \\ \small Draft}
+\title[The sixth Schur number]{A new lower bound for the sixth Schur number: $S(6)\ge537$}
+\author{Zhiyang Chen}
+\author{Ligeng Zhu}
+\author{Fan Long}
+\date{22 October 2026}
 
 \begin{document}
-\maketitle
 
 \begin{abstract}
-The lower bound $S(6)\ge 536$ for the sixth Schur number, found by Fredricksen and
-Sweet in 2000, has stood for twenty-six years. We break it: we give a partition of
-$\{1,\dots,537\}$ into six sum-free sets, so $S(6)\ge 537$. Through known recursive
-constructions this also improves the best lower bounds for $S(8)$, $S(11)$, $S(13)$
-and for the six-colour Ramsey number $R_6(3)$. Our search produced $131$
-such partitions, no two of which are related by renaming colours or by a
-multiplication $x\mapsto rx$ modulo $538$. They fall into five families, which we
-describe. The full list and verification code are supplied in the companion repository.
+We give an explicit partition of $\{1,\ldots,537\}$ into six sum-free sets,
+establishing $S(6)\ge537$. This improves the lower bound 536 of Fredricksen and
+Sweet (2000). Known recursive constructions then give improved lower bounds
+for $S(8)$, $S(11)$, $S(13)$, and $R_6(3)$. We also report 131 pairwise
+inequivalent partitions found by the search. We describe their structure and
+provide the complete certificates and verification code in a companion repository.
 \end{abstract}
+\keywords{Schur numbers, sum-free partitions, SAT, computational combinatorics}
+\maketitle
 
 \section{Introduction}
 A set $C$ of integers is \emph{sum-free} if there are no $x,y\in C$, not necessarily
@@ -51,7 +52,8 @@ $S(6)\ge 537$.
 
 \begin{proof}
 The following six sets are pairwise disjoint, their union is $\{1,\dots,537\}$, and
-none of them contains $x$, $y$ and $x+y$. This is a finite check; a script that
+none of them contains $x$, $y$ and $x+y$. We list every element, as in the
+explicit constructions of Fredricksen and Sweet~\cite{fs}. This is a finite check; a script that
 performs it is supplied as \texttt{check.py} in the companion repository.
 \par\smallskip
 \input{partition_blocks.tex}
@@ -70,30 +72,42 @@ $\{1,\dots,537\}$ is \emph{palindromic} if $c(x)=c(N-x)$ for all $x$. We number 
 colours $1,\dots,6$ in the order of their least elements.
 
 \section{Consequences for other bounds}\label{sec:consequences}
-Lower bounds for larger Schur numbers are built from smaller ones by recursive
-constructions. Starting from Schur's $S(k+1)\ge 3S(k)+1$~\cite{schur} and the
-Abbott--Hanson bound $S(k+2)\ge 9S(k)+4$~\cite{abbott}, the strongest known are
-template constructions: Rowley's $S(k+3)\ge 33S(k)+6$~\cite{rowley}, the bounds
-$S(k+4)\ge 111S(k)+43$ and $S(k+5)\ge 380S(k)+148$ of Ageron et
-al.~\cite{ageron}, and $S(k+2)\ge 10S(k)+2$ of Bengone et al.~\cite{bengone}. Each of
-them turns any partition of $\{1,\dots,p\}$ into $k$ sum-free sets into a larger one,
-for $p$ as large as the ones considered here.
-A partition of $\{1,\dots,n\}$ into $k$ sum-free sets also gives a colouring of the
-edges of the complete graph on $\{0,\dots,n\}$ in $k$ colours without a monochromatic
-triangle (colour the edge $ij$ by the class of $|i-j|$), so $R_k(3)\ge S(k)+2$.
+Classical recurrences of Schur and Abbott--Hanson~\cite{schur,abbott},
+and the template constructions of Rowley and Ageron et al.~\cite{rowley,ageron},
+turn smaller partitions into larger ones. We use
+\[
+S(k+2)\ge10S(k)+2\quad\text{\cite{bengone}},\qquad
+S(k+5)\ge380S(k)+148\quad\text{\cite{ageron}}.
+\]
+A sum-free $k$-partition of $[1,n]$ also gives an edge coloring of $K_{n+1}$
+without monochromatic triangles: color $ij$ by the class of $|i-j|$.
+Consequently, $R_k(3)\ge S(k)+2$.
 
 \begin{corollary}\label{cor:consequences}
-\[
-S(8)\ge 5372,\qquad S(11)\ge 204\,208,\qquad S(13)\ge 2\,042\,082,\qquad R_6(3)\ge 539.
-\]
-The previous bounds were $S(8)\ge5362$ and $S(13)\ge2\,038\,282$~\cite{bengone},
-$S(11)\ge203\,828$~\cite{ageron}, and $R_6(3)\ge538$~\cite{fs,xxer}.
+The lower bounds in the column headed ``This work'' in Table~\ref{tab:bounds} hold.
 \end{corollary}
+
+\begin{table}[tbp]
+\caption{Lower bounds in the cited literature and the bounds obtained here.
+The six- and eight-color bounds have explicit certificates in the repository.}
+\label{tab:bounds}
+\centering
+\begin{tabular}{lrrl}
+\toprule
+Quantity & Previous bound & This work & Previous source\\
+\midrule
+$S(6)$    & $536$          & $537$            & Fredricksen--Sweet~\cite{fs}\\
+$S(8)$    & $5\,362$       & $5\,372$         & Bengone et al.~\cite{bengone}\\
+$S(11)$   & $203\,828$     & $204\,208$       & Ageron et al.~\cite{ageron}\\
+$S(13)$   & $2\,038\,282$ & $2\,042\,082$    & Bengone et al.~\cite{bengone}\\
+$R_6(3)$  & $538$          & $539$            & Fredricksen--Sweet~\cite{fs,xxer}\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \begin{proof}
 $S(8)\ge10\cdot537+2$, $S(11)\ge380\cdot537+148$,
-$S(13)\ge10\cdot S(11)+2\ge10\cdot204\,208+2$, and $R_6(3)\ge S(6)+2$. The other
-recurrences above give smaller values for these four numbers. For $S(8)$ we also
+$S(13)\ge10\cdot S(11)+2\ge10\cdot204\,208+2$, and $R_6(3)\ge S(6)+2$. For $S(8)$ we also
 built the partition explicitly: apply the width-$10$ template of
 \cite[Table~II]{bengone} to the partition of Theorem~\ref{thm:537}, with colours $7$
 and $8$ for the labels $A$ and $B$. The companion script \texttt{check.py} builds this
@@ -124,8 +138,22 @@ modulo $538$ is in \emph{frame $g$} if, with $Q=151$ and $d=38$,
 \end{definition}
 
 In words: the sixth colour does not occur below $151$ and fills the middle of the
-interval, and the fifth colour does not occur below $38$ or just below $151$. The
-first class of the example has a simple description as well. Put
+interval, and the fifth colour does not occur below $38$ or just below $151$.
+Figure~\ref{fig:structure} shows the certificate and these restrictions.
+
+\begin{figure}[tbp]
+\centering
+\input{figures/structure.tex}
+\caption{The 537 certificate and its search frame. (a) A colored cell in row
+$C_j$ marks an integer in that class; the right margin gives the class size.
+The dashed line marks the center of reflection. (b) Light cells mark permitted
+colors before propagation; dark cells mark forced colors. The row layout
+follows the certificate diagrams of Heule~\cite[Fig.~1]{heule}; the entries
+here are generated from our certificate and frame rules.}
+\label{fig:structure}
+\end{figure}
+
+The first class of the example has a simple description as well. Put
 \begin{align*}
 A&=\{1,5,12,15,19,21,23,25,29,32,39,43,45,49\},\\
 B&=A\cup(151-A)\cup\{151+a: a\in A,\ a\le 29\}\cup\{95\},
@@ -138,22 +166,8 @@ The $131$ partitions of $\{1,\dots,537\}$ into six sum-free sets listed in
 the companion file \texttt{solutions537.txt} are pairwise distinct, every class of each of them is
 sum-free modulo $538$, and no one of them is obtained from another by a map
 $x\mapsto rx \bmod 538$ with $\gcd(r,538)=1$ followed by renaming the colours.
-They form the following five families.
-\begin{description}
-\item[$\mathcal F_1$ ($107$ partitions).] Palindromic, in frame $g$, with first
-class equal to $C^*$. The example of Theorem~\ref{thm:537} is $\mathcal F_1.001$.
-\item[$\mathcal F_2$ ($14$ partitions).] Palindromic and in frame $g$; the first
-class differs from $C^*$ in one pair $\{x,538-x\}$.
-\item[$\mathcal F_3$ ($5$ partitions).] In frame $g$ with first class $C^*$, but not
-palindromic: between $2$ and $12$ pairs $\{x,538-x\}$ receive different colours.
-\item[$\mathcal F_4$ ($4$ partitions).] Palindromic, and they satisfy every
-condition of frame $g$ except the last one only in part: between $1$ and $13$
-values $\fold(x)>236$ do not receive colour~$6$. The first class differs from $C^*$
-in between $2$ and $8$ numbers.
-\item[$\mathcal F_5$ ($1$ partition).] Its classes start at $1,2,3,4,7,16$. After the
-substitution $x\mapsto 43x\bmod 538$ its classes start at $1,2,3,4,38,151$, it fails
-palindromy in $5$ pairs, and its first class differs from $C^*$ in $3$ numbers.
-\end{description}
+They form the five families summarized in Table~\ref{tab:families}.
+The example of Theorem~\ref{thm:537} is $\mathcal F_1.001$.
 Each partition in $\mathcal F_1$--$\mathcal F_4$ agrees with the example in at least
 $462$ of the $537$ positions.
 \end{proposition}
@@ -162,13 +176,34 @@ $462$ of the $537$ positions.
 All statements are finite checks, carried out by the companion script \texttt{check.py}.
 \end{proof}
 
-So the partitions we found are variations of a single solution. Three further
-observations, from SAT runs without proof certificates, point the same way:
-(i) with $Q=151,d=38$ replaced by any $140\le Q\le160$, $39\le d\le45$, the conditions
-of Definition~\ref{def:frameg} have no solution; (ii) for $d=38$ and
-$148\le Q\le154$, every solution has a class containing $A\cup(Q-A)$; (iii) of
-$9{,}160$ changes of one to three colours at positions $5$--$30$ of the $32$ partitions
-known at the time, only two still extend to a palindromic $537$-partition.
+For Table~\ref{tab:families}, $d_{\rm pal}$ counts pairs $\{x,538-x\}$
+with different colors, $\Delta_1=|C_1\mathbin{\triangle}C^*|$, and $h$ counts
+folded positions $f>236$ outside color 6. Family $\mathcal F_5$ is measured after
+$x\mapsto43x\bmod538$ and color renumbering; its original class minima are
+$1,2,3,4,7,16$. Families $\mathcal F_1$--$\mathcal F_3$ satisfy frame $g$.
+Family $\mathcal F_4$ satisfies the frame with the solid-middle condition removed.
+These families describe the retained sample, not all possible 537-partitions.
+
+\begin{table}[tbp]
+\caption{The 131 retained partitions. Intervals give the observed minimum and
+maximum within a family. Features of $\mathcal F_5$ use the normalization stated
+in the text. All entries are computed from \texttt{solutions537.txt}.}
+\label{tab:families}
+\centering
+\begin{tabular}{lrrrr}
+\toprule
+Family & Count & $d_{\rm pal}$ & $\Delta_1$ & $h$\\
+\midrule
+$\mathcal F_1$ & 107 & 0 & 0 & 0\\
+$\mathcal F_2$ & 14  & 0 & 2 & 0\\
+$\mathcal F_3$ & 5   & 2--12 & 0 & 0\\
+$\mathcal F_4$ & 4   & 0 & 2--8 & 1--13\\
+$\mathcal F_5$ & 1   & 5 & 3 & 5\\
+\midrule
+Total & 131 & & &\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \section{How to reproduce the search}\label{sec:method}
 \paragraph{Encoding.} For a palindromic colouring use variables $v_{y,k}$ for
@@ -228,7 +263,8 @@ result was recorded with a command that reproduces it and checked by a second ag
 \paragraph{Data and code.}
 The companion repository contains the full list of $131$ partitions, a separate
 PDF table, the example certificate, the $5372$-element eight-colouring,
-\texttt{check.py}, and \texttt{gen.py}. To check the results, run
+\texttt{check.py}, \texttt{gen.py}, and \texttt{paper/make\_figures.py}.
+The figures are vector graphics generated from the certificates. To check the results, run
 \texttt{python3 check.py} from the repository root with Python~3 and its
 standard library. The paper retains one complete partition; the remaining
 partitions and code are supplementary material.
@@ -251,9 +287,9 @@ numbers, arXiv:2607.15034 (2026).
 bounds on classical multicolor Ramsey numbers, \emph{Electron.\ J.\ Combin.}
 \textbf{11} (2004), \#R35.
 \bibitem{fs} H.~Fredricksen and M.~M.~Sweet, Symmetric sum-free partitions and lower
-bounds for Schur numbers, \emph{Electron.\ J.\ Combin.} \textbf{7} (2000), \#R32.
+bounds for Schur numbers, \emph{Electron.\ J.\ Combin.} \textbf{7} (2000), \#R32. \href{https://doi.org/10.37236/1510}{doi:10.37236/1510}.
 \bibitem{heule} M.~J.~H.~Heule, Schur number five, \emph{Proc.\ AAAI} \textbf{32}
-(2018).
+(2018). \href{https://doi.org/10.1609/aaai.v32i1.12209}{doi:10.1609/aaai.v32i1.12209}.
 \bibitem{kissat} A.~Biere, K.~Fazekas, M.~Fleury and M.~Heisinger, CaDiCaL, Kissat,
 Paracooba, Plingeling and Treengeling entering the SAT Competition 2020,
 \emph{Proc.\ SAT Competition 2020}.

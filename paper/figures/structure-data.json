@@ -1,0 +1,89 @@
+{
+  "certificate_sha256": "5f950ad88a5437108a0c6ab4b9d40cc2832a43dd474b5c4b269e02ac81258315",
+  "class_sizes": [
+    76,
+    76,
+    88,
+    70,
+    76,
+    151
+  ],
+  "folded_positions": 269,
+  "family_features": {
+    "F1": {
+      "count": 107,
+      "palindromic_defects": [
+        0,
+        0
+      ],
+      "first_class_difference": [
+        0,
+        0
+      ],
+      "middle_gaps": [
+        0,
+        0
+      ]
+    },
+    "F2": {
+      "count": 14,
+      "palindromic_defects": [
+        0,
+        0
+      ],
+      "first_class_difference": [
+        2,
+        2
+      ],
+      "middle_gaps": [
+        0,
+        0
+      ]
+    },
+    "F3": {
+      "count": 5,
+      "palindromic_defects": [
+        2,
+        12
+      ],
+      "first_class_difference": [
+        0,
+        0
+      ],
+      "middle_gaps": [
+        0,
+        0
+      ]
+    },
+    "F4": {
+      "count": 4,
+      "palindromic_defects": [
+        0,
+        0
+      ],
+      "first_class_difference": [
+        2,
+        8
+      ],
+      "middle_gaps": [
+        1,
+        13
+      ]
+    },
+    "F5": {
+      "count": 1,
+      "palindromic_defects": [
+        5,
+        5
+      ],
+      "first_class_difference": [
+        3,
+        3
+      ],
+      "middle_gaps": [
+        5,
+        5
+      ]
+    }
+  }
+}

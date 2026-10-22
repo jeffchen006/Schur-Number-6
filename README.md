@@ -1,9 +1,9 @@
-# The sixth Schur number is at least 537
+# A new lower bound for the sixth Schur number: S(6) >= 537
 
 **Authors:** Zhiyang Chen, Ligeng Zhu, and Fan Long.
 
 This repository contains the explicit certificates and code for the paper
-**The sixth Schur number is at least 537**.
+**A new lower bound for the sixth Schur number: S(6) >= 537**.
 
 The main certificate partitions the integers 1 through 537 into six sum-free
 sets. No set contains `x`, `y`, and `x+y`, including the case `x=y`.
@@ -12,7 +12,10 @@ This gives **S(6) >= 537** under the maximum-feasible-interval convention.
 ## Paper and full results
 
 - [Paper PDF](paper/main.pdf), with one complete explicit partition.
-- [LaTeX source](paper/main.tex) and [partition table](paper/partition_blocks.tex).
+- [LaTeX source](paper/main.tex), using the AMS `amsart` class.
+- [Certificate and frame diagram](paper/figures/structure.tex), generated from the data.
+- [Figure and family data](paper/figures/structure-data.json).
+- [Complete explicit partition](paper/partition_blocks.tex).
 - [Supplementary PDF](supplement/partitions.pdf), with all 131 partitions.
 - [Complete machine-readable list](solutions537.txt).
 - [Main certificate](certificate.col).
@@ -100,6 +103,14 @@ The references and recurrence details are in the paper. No exact value for S(6)
 or impossibility result at 538 is claimed.
 
 ## Build the documents
+
+The paper and supplement use the AMS `amsart` class. The paper also uses TikZ
+and `booktabs` for vector graphics and tables. These are standard TeX Live packages.
+To regenerate the diagram and its data from the certificates, run:
+
+```sh
+python3 paper/make_figures.py
+```
 
 Run pdfLaTeX twice in each document directory:
 
