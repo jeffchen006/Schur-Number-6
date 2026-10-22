@@ -2,6 +2,10 @@
 
 **Authors:** Zhiyang Chen, Ligeng Zhu, and Fan Long.
 
+- Zhiyang Chen — University of Toronto — zhiychen@cs.toronto.edu
+- Ligeng Zhu — NVIDIA Research — ligengz@nvidia.com
+- Fan Long — University of Toronto — fanl@cs.toronto.edu
+
 This repository contains the explicit certificates and code for the paper
 **A new lower bound for the sixth Schur number: S(6) >= 537**.
 
