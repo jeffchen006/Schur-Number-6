@@ -1,5 +1,7 @@
 # The sixth Schur number is at least 537
 
+**Authors:** Zhiyang Chen, Ligeng Zhu, and Fan Long.
+
 This repository contains the explicit certificates and code for the paper
 **The sixth Schur number is at least 537**.
 

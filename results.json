@@ -29,5 +29,10 @@
   "paper": "paper/main.pdf",
   "full_tables": "supplement/partitions.pdf",
   "verification_command": "python3 check.py",
-  "generator_caveat": "Historical decoder can lose forced frame colors; run python3 decoder_caveat.py."
+  "generator_caveat": "Historical decoder can lose forced frame colors; run python3 decoder_caveat.py.",
+  "authors": [
+    "Zhiyang Chen",
+    "Ligeng Zhu",
+    "Fan Long"
+  ]
 }
