@@ -1,9 +1,9 @@
 Layout and visual references
 ============================
 
-The paper uses the standard AMS amsart document class, with a single column,
-separate author commands, a compact abstract, theorem environments, running
-heads, and numbered figure and table captions.
+The paper uses the standard LaTeX article document class, with a single column,
+a three-column author block showing affiliations and emails on the first page,
+a compact abstract, theorem environments, and numbered figure and table captions.
 
 Published papers read for the presentation:
 

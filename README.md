@@ -17,7 +17,7 @@ This gives **S(6) >= 537** under the maximum-feasible-interval convention.
 
 - [Paper PDF](paper/main.pdf), with one complete explicit partition.
   The paper presents the mathematics. Implementation details are documented here.
-- [LaTeX source](paper/main.tex), using the AMS `amsart` class.
+- [LaTeX source](paper/main.tex), using the standard `article` class with first-page affiliations and emails.
 - [Certificate and frame diagram](paper/figures/structure.tex), generated from the data.
 - [Figure and family data](paper/figures/structure-data.json).
 - [Complete explicit partition](paper/partition_blocks.tex).
@@ -109,7 +109,7 @@ or impossibility result at 538 is claimed.
 
 ## Build the documents
 
-The paper and supplement use the AMS `amsart` class. The paper also uses TikZ
+The paper and supplement use the standard `article` class. The paper also uses TikZ
 and `booktabs` for vector graphics and tables. These are standard TeX Live packages.
 To regenerate the diagram and its data from the certificates, run:
 

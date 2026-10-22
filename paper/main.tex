@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper,reqno]{amsart}
+\documentclass[11pt,a4paper]{article}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage[margin=25mm]{geometry}
@@ -17,19 +17,24 @@
 \newtheorem{remark}[theorem]{Remark}
 \newcommand{\fold}{\operatorname{f}}
 
-\title[The sixth Schur number]{A new lower bound for the sixth Schur number: $S(6)\ge537$}
-\author{Zhiyang Chen}
-\address{Department of Computer Science, University of Toronto, Toronto, Canada}
-\email{zhiychen@cs.toronto.edu}
-\author{Ligeng Zhu}
-\address{NVIDIA Research}
-\email{ligengz@nvidia.com}
-\author{Fan Long}
-\address{Department of Computer Science, University of Toronto, Toronto, Canada}
-\email{fanl@cs.toronto.edu}
+\title{A new lower bound for the sixth Schur number: $S(6)\ge537$}
+\author{
+  Zhiyang Chen\\[3pt]
+  {\small University of Toronto}\\
+  {\small\texttt{zhiychen@cs.toronto.edu}}
+  \and
+  Ligeng Zhu\\[3pt]
+  {\small NVIDIA Research}\\
+  {\small\texttt{ligengz@nvidia.com}}
+  \and
+  Fan Long\\[3pt]
+  {\small University of Toronto}\\
+  {\small\texttt{fanl@cs.toronto.edu}}
+}
 \date{22 October 2026}
 
 \begin{document}
+\maketitle
 
 \begin{abstract}
 We give an explicit partition of $\{1,\ldots,537\}$ into six sum-free sets,
@@ -39,8 +44,7 @@ for $S(8)$, $S(11)$, $S(13)$, and $R_6(3)$. We also report 131 pairwise
 inequivalent partitions found by the search. We describe their structure and
 provide the complete partitions in the supplementary material.
 \end{abstract}
-\keywords{Schur numbers, sum-free partitions, Ramsey theory}
-\maketitle
+\noindent\textbf{Keywords:} Schur numbers, sum-free partitions, Ramsey theory.
 
 \section{Introduction}
 A set $C$ of integers is \emph{sum-free} if there are no $x,y\in C$, not necessarily
