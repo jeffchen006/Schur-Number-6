@@ -30,11 +30,7 @@
   "full_tables": "supplement/partitions.pdf",
   "verification_command": "python3 check.py",
   "generator_caveat": "Historical decoder can lose forced frame colors; run python3 decoder_caveat.py.",
-  "authors": [
-    "Zhiyang Chen",
-    "Ligeng Zhu",
-    "Fan Long"
-  ],
   "paper_title": "A new lower bound for the sixth Schur number: S(6) >= 537",
-  "document_class": "amsart"
+  "document_class": "article",
+  "arxiv_url": "https://arxiv.org/abs/2610.31362"
 }

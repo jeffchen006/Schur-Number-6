@@ -1,10 +1,6 @@
 # A new lower bound for the sixth Schur number: S(6) >= 537
 
-**Authors:** Zhiyang Chen, Ligeng Zhu, and Fan Long.
-
-- Zhiyang Chen — University of Toronto — zhiychen@cs.toronto.edu
-- Ligeng Zhu — NVIDIA Research — ligengz@nvidia.com
-- Fan Long — University of Toronto — fanl@cs.toronto.edu
+**Paper:** [arXiv:2610.31362](https://arxiv.org/abs/2610.31362).
 
 This repository contains the explicit certificates and code for the paper
 **A new lower bound for the sixth Schur number: S(6) >= 537**.
@@ -17,7 +13,7 @@ This gives **S(6) >= 537** under the maximum-feasible-interval convention.
 
 - [Paper PDF](paper/main.pdf), with one complete explicit partition.
   The paper presents the mathematics. Implementation details are documented here.
-- [LaTeX source](paper/main.tex), using the standard `article` class with first-page affiliations and emails.
+- [LaTeX source](paper/main.tex), using the standard `article` class.
 - [Complete explicit partition](paper/partition_blocks.tex).
 - [Supplementary PDF](supplement/partitions.pdf), with all 131 partitions.
 - [Complete machine-readable list](solutions537.txt).

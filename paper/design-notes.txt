@@ -2,7 +2,7 @@ Layout and presentation references
 ============================
 
 The paper uses the standard LaTeX article document class, with a single column,
-a three-column author block showing affiliations and emails on the first page,
+an arXiv reference below the title,
 a compact abstract, theorem environments, and numbered table captions.
 
 Published papers read for the presentation:
